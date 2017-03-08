@@ -39,14 +39,14 @@ function startGame() {
 }
 function destroyButton(button, timerId) { 
     if (button.isVisible == true) {
-        //clearTimeout(timerId);
+        clearTimeout(timerId);
         var element = document.getElementById(button.id);
         element.style.display = 'none';
         button.isVisible = false;
 
         var randomShowTime = getRandomTime(1500, 3000);
         setTimeout(showButton , randomShowTime, button);
-        //timerId = setTimeout(showButton , randomShowTime, button, timerId);
+        timerId = setTimeout(showButton , randomShowTime, button, timerId);
 
         var counter = document.getElementById('counter');
         counter.innerHTML++;
@@ -55,11 +55,11 @@ function destroyButton(button, timerId) {
 }
 function showButton(button, timerId) {
     if (button.isVisible == false) {
-        //clearTimeout(timerId);
+        clearTimeout(timerId);
         var element = document.getElementById(button.id);
         element.style.display = 'inline-block'; 
         button.isVisible = true;
-        //timerId = setTimeout(destroyButton, 3000, button, timerId);
+        timerId = setTimeout(destroyButton, 3000, button, timerId);
     }
     
 
